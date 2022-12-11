@@ -31,4 +31,10 @@ To install, go to the VSCode extensions sidebar and select `Install Extension VS
 ## Links
 
 - https://github.com/slint-ui/slint/tree/master/editors/vscode
+- https://code.visualstudio.com/api/working-with-extensions/bundling-extension
 
+## TODO
+
+- inject the compiled lsp-server binary into the extension?
+  - or put to a well-known location.
+- convert tan.tmLanguage to JSON.
