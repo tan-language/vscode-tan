@@ -11,7 +11,7 @@ let client: LanguageClient;
 
 export function activate(context: ExtensionContext) {
   const command =
-    "/home/gmosx/Code/Language/tanlang/tan_language_server/target/debug/tan_language_server";
+    "/home/gmosx/Code/Language/Old/tanlang/tan_language_server/target/debug/tan_language_server";
 
   const env = Object.assign({}, process.env);
   Object.assign(env, { RA_LOG: "info" });

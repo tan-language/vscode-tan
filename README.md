@@ -8,21 +8,25 @@ A Visual Studio Code (VSCode) extension for the Tan language.
 npm i
 ```
 
-## Usage
-
-Package as VSIX:
+Compile:
 
 ```sh
-vsce package
+npm run compile
 ```
 
-or
+Package as VSIX:
 
 ```sh
 npm run package
 ```
 
-To install, right-click from VSCode sidebar and select `Install Extension VSIX`.
+or
+
+```sh
+vsce package
+```
+
+To install, go to the VSCode extensions sidebar and select `Install Extension VSIX` from the overflow menu (3 dots menu), top-right.
 
 ## Links
 
