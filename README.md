@@ -5,6 +5,11 @@ A Visual Studio Code (VSCode) extension for the Tan language.
 ## Setup
 
 ```sh
+cd tan_lsp_server
+cargo r
+```
+
+```sh
 npm i
 ```
 
@@ -30,6 +35,7 @@ To install, go to the VSCode extensions sidebar and select `Install Extension VS
 
 ## Links
 
+- https://code.visualstudio.com/api/language-extensions/semantic-highlight-guide
 - https://github.com/slint-ui/slint/tree/master/editors/vscode
 - https://code.visualstudio.com/api/working-with-extensions/bundling-extension
 
