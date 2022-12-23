@@ -38,6 +38,7 @@ To install, go to the VSCode extensions sidebar and select `Install Extension VS
 - https://code.visualstudio.com/api/language-extensions/semantic-highlight-guide
 - https://github.com/slint-ui/slint/tree/master/editors/vscode
 - https://code.visualstudio.com/api/working-with-extensions/bundling-extension
+- https://github.com/tamasfe/taplo
 
 ## TODO
 

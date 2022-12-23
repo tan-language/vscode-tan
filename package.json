@@ -4,7 +4,7 @@
     "description": "VSCode Extension for Tan Language",
     "author": "George Moschovitis",
     "license": "MIT",
-    "version": "0.5.4",
+    "version": "0.6.0",
     "repository": {
         "type": "git",
         "url": "https://github.com/tanlang/vscode_tan"
