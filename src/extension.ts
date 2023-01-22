@@ -11,7 +11,7 @@ let client: LanguageClient;
 
 export function activate(context: ExtensionContext) {
   const command =
-    "/home/gmosx/Base/Code/Language/tanlang/tan_lsp_server/target/debug/tan_lsp_server";
+    "/home/gmosx/Base/Code/Language/tan_lsp_server/target/debug/tan_lsp_server";
 
   // #TODO make logging level a client option?
   // Control server logging level.
