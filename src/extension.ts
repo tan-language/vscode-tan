@@ -11,9 +11,8 @@ let client: LanguageClient;
 
 /** Activates the extension. */
 export function activate(context: ExtensionContext) {
-  // #TODO how to make this independent of my directory structure? relative path?
-  const command =
-    "/home/gmosx/Base/Code/Language/tan_lsp_server/target/debug/tan_lsp_server";
+  // #Tip Install server with `cargo install tan_lsp_server`.
+  const command = "tan_lsp_server";
 
   // #TODO make logging level a client option?
   // Control server logging level.
