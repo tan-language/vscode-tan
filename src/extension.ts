@@ -1,5 +1,5 @@
 import * as vscode from "vscode";
-import { ExtensionContext, workspace } from "vscode";
+import { ExtensionContext } from "vscode";
 import {
   LanguageClient,
   LanguageClientOptions,
@@ -9,7 +9,9 @@ import {
 
 let client: LanguageClient;
 
+/** Activates the extension. */
 export function activate(context: ExtensionContext) {
+  // #TODO how to make this independent of my directory structure? relative path?
   const command =
     "/home/gmosx/Base/Code/Language/tan_lsp_server/target/debug/tan_lsp_server";
 
@@ -30,8 +32,10 @@ export function activate(context: ExtensionContext) {
     "Tan Language Server Trace",
   );
 
+  // #Insight
   // Server output (eprintln!) is logged to Output > Tan Language
 
+  // #TODO consider other TransportKinds?
   const serverOptions: ServerOptions = {
     run: { command, transport: TransportKind.stdio, options: { env } },
     debug: { command, transport: TransportKind.stdio, options: { env } },
@@ -40,11 +44,10 @@ export function activate(context: ExtensionContext) {
   const clientOptions: LanguageClientOptions = {
     documentSelector: [{ scheme: "file", language: "tan" }],
     traceOutputChannel,
-    synchronize: {
-      // #TODO what is this?
-      // Notify the server about file changes to '.clientrc files contained in the workspace
-      fileEvents: workspace.createFileSystemWatcher("**/.clientrc"),
-    },
+    // synchronize: {
+    //   // Notify the server about file changes to '.tan files contained in the workspace
+    //   fileEvents: workspace.createFileSystemWatcher("**/.tan"),
+    // },
   };
 
   context.subscriptions.push(
@@ -63,6 +66,7 @@ export function activate(context: ExtensionContext) {
   client.start();
 }
 
+/** Deactivates the extension. */
 export function deactivate(): Thenable<void> | undefined {
   if (!client) {
     return undefined;
