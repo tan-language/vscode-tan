@@ -1,5 +1,5 @@
 import * as vscode from "vscode";
-import { ExtensionContext } from "vscode";
+import { ExtensionContext, workspace } from "vscode";
 import {
   LanguageClient,
   LanguageClientOptions,
@@ -24,7 +24,7 @@ export function activate(context: ExtensionContext) {
   const clientOutputChannel = vscode.window.createOutputChannel(
     "Tan Language Client",
   );
-  //   clientOutputChannel.appendLine(`This is an error message!!`);
+  // clientOutputChannel.appendLine(`This is an error message!!`);
   clientOutputChannel.show(true);
 
   // Logs protocol messages to Output > Tab Language Server Trace
@@ -44,10 +44,9 @@ export function activate(context: ExtensionContext) {
   const clientOptions: LanguageClientOptions = {
     documentSelector: [{ scheme: "file", language: "tan" }],
     traceOutputChannel,
-    // synchronize: {
-    //   // Notify the server about file changes to '.tan files contained in the workspace
-    //   fileEvents: workspace.createFileSystemWatcher("**/.tan"),
-    // },
+    synchronize: {
+      fileEvents: workspace.createFileSystemWatcher("**/*.tan"),
+    },
   };
 
   context.subscriptions.push(
