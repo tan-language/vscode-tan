@@ -21,7 +21,6 @@
     },
     "main": "./out/extension.js",
     "activationEvents": [
-        "onLanguage:tan",
         "workspaceContains:**/*.tan"
     ],
     "contributes": {
@@ -46,7 +45,7 @@
                 "scopeName": "source.tan",
                 "path": "./tan.tmLanguage",
                 "embeddedLanguages": {
-                    "meta.embedded.block.frontmatter": "yaml"
+                    "meta.embedded.block.comment": "markdown"
                 }
             }
         ],
