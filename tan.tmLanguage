@@ -9,6 +9,8 @@
             <string>tan</string>
             <string>data.tan</string>
             <string>lit.tan</string>
+            <string>config.tan</string>
+            <string>lisp</string>
         </array>
         <key>foldingStartMarker</key>
         <string>\(</string>
@@ -88,7 +90,7 @@
                         <key>name</key>
                         <string>entity.name.type.tan</string>
                     </dict>
-                </dict>c
+                </dict>
                 <key>match</key>
                 <string>
                     (?:\()((?i:deftype|defstruct|define-condition|defpackage|defclass))\s+((?:\w|[+\-<>
