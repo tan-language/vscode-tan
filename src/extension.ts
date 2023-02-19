@@ -1,3 +1,5 @@
+import * as fs from "fs";
+import * as path from "path";
 import * as vscode from "vscode";
 import { ExtensionContext, workspace } from "vscode";
 import {
@@ -7,18 +9,32 @@ import {
   TransportKind,
 } from "vscode-languageclient/node";
 
+// #TODO different path for windows/unix?
+// #Tip Install server with `cargo install tan`.
+
+/// The Tan CLI executable name.
+const TAN_CLI = "tan";
+
+// #Tip Install server with `cargo install tan_lsp_server`.
+
+/// The Tan LSP Server executable name.
+const TAN_LSP_SERVER = "tan_lsp_server";
+
 let client: LanguageClient;
+
+function executableExists(name: string): boolean {
+  const envPath = process.env["PATH"];
+
+  if (!envPath) {
+    return false;
+  }
+
+  return envPath.split(path.delimiter)
+    .some((x) => fs.existsSync(path.resolve(x, name)));
+}
 
 /** Activates the extension. */
 export function activate(context: ExtensionContext) {
-  // #Tip Install server with `cargo install tan_lsp_server`.
-  const command = "tan_lsp_server";
-
-  // #TODO make logging level a client option?
-  // Control server logging level.
-  const env = Object.assign({}, process.env);
-  Object.assign(env, { RA_LOG: "trace" });
-
   // Logs client output to Output > Tan Client
   const clientOutputChannel = vscode.window.createOutputChannel(
     "Tan Language Client",
@@ -35,9 +51,23 @@ export function activate(context: ExtensionContext) {
   // Server output (eprintln!) is logged to Output > Tan Language
 
   // #TODO consider other TransportKinds?
+
+  // #TODO make logging level a client option?
+  // Control server logging level.
+  const env = Object.assign({}, process.env);
+  Object.assign(env, { RA_LOG: "trace" });
+
   const serverOptions: ServerOptions = {
-    run: { command, transport: TransportKind.stdio, options: { env } },
-    debug: { command, transport: TransportKind.stdio, options: { env } },
+    run: {
+      command: TAN_LSP_SERVER,
+      transport: TransportKind.stdio,
+      options: { env },
+    },
+    debug: {
+      command: TAN_LSP_SERVER,
+      transport: TransportKind.stdio,
+      options: { env },
+    },
   };
 
   const clientOptions: LanguageClientOptions = {
