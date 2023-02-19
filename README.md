@@ -35,6 +35,8 @@ or
 vsce package
 ```
 
+> #Tip: If you only change non-ts files, no need to run compile.
+
 To install, go to the VSCode extensions sidebar and select `Install Extension VSIX` from the overflow menu (3 dots menu), top-right.
 
 ## Contributing

@@ -18,6 +18,9 @@
                 },
                 {
                     "include": "#annotation"
+                },
+                {
+                    "include": "#use"
                 }
             ]
         },
@@ -35,6 +38,10 @@
             "name": "keyword.control.tan",
             "begin": "\\#",
             "end": "\\s"
+        },
+        "use": {
+            "name": "keyword.control.import.tan",
+            "match": "\\b(use)\\b"
         }
     }
 }
