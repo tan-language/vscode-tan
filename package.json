@@ -54,6 +54,11 @@
                 "command": "tan.syntaxTree",
                 "title": "Show Syntax Tree",
                 "category": "Tan"
+            },
+            {
+                "command": "tan.openREPL",
+                "title": "Open a REPL terminal",
+                "category": "Tan"
             }
         ],
         "configuration": {

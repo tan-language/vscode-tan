@@ -35,15 +35,14 @@ function executableExists(name: string): boolean {
 
 /** Activates the extension. */
 export function activate(context: ExtensionContext) {
-  // Logs client output to Output > Tan Client
+  // Logs client messages to Output > Tan Client
   const clientOutputChannel = vscode.window.createOutputChannel(
     "Tan Language Client",
   );
-  // clientOutputChannel.appendLine(`This is an error message!!`);
   clientOutputChannel.show(true);
 
-  // Logs protocol messages to Output > Tab Language Server Trace
-  const traceOutputChannel = vscode.window.createOutputChannel(
+  // Logs server messages to Output > Tab Language Server Trace
+  const serverTraceOutputChannel = vscode.window.createOutputChannel(
     "Tan Language Server Trace",
   );
 
@@ -72,15 +71,25 @@ export function activate(context: ExtensionContext) {
 
   const clientOptions: LanguageClientOptions = {
     documentSelector: [{ scheme: "file", language: "tan" }],
-    traceOutputChannel,
+    traceOutputChannel: serverTraceOutputChannel,
     synchronize: {
       fileEvents: workspace.createFileSystemWatcher("**/*.tan"),
     },
   };
 
+  context.subscriptions.push(vscode.commands.registerCommand(
+    "tan.openREPL",
+    (args) => {
+      // #TODO
+      clientOutputChannel.appendLine(args);
+      //   getREPL(true);
+    },
+  ));
+
   context.subscriptions.push(
     vscode.commands.registerCommand("tan.syntaxTree", (args) => {
-      console.log(args);
+      // #TODO
+      clientOutputChannel.appendLine(args);
     }),
   );
 
