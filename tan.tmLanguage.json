@@ -1,0 +1,40 @@
+{
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "Tan",
+    "scopeName": "source.tan",
+    "patterns": [
+        {
+            "include": "#all"
+        }
+    ],
+    "repository": {
+        "all": {
+            "patterns": [
+                {
+                    "include": "#comment_line_double-dash"
+                },
+                {
+                    "include": "#comment_line_semicolon"
+                },
+                {
+                    "include": "#annotation"
+                }
+            ]
+        },
+        "comment_line_double-dash": {
+            "name": "comment.line.double-dash.tan",
+            "begin": "--",
+            "end": "$"
+        },
+        "comment_line_semicolon": {
+            "name": "comment.line.semicolon.tan",
+            "begin": ";",
+            "end": "$"
+        },
+        "annotation": {
+            "name": "keyword.control.tan",
+            "begin": "\\#",
+            "end": "\\s"
+        }
+    }
+}

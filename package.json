@@ -43,7 +43,7 @@
             {
                 "language": "tan",
                 "scopeName": "source.tan",
-                "path": "./tan.tmLanguage",
+                "path": "./tan.tmLanguage.json",
                 "embeddedLanguages": {
                     "meta.embedded.block.comment": "markdown"
                 }
