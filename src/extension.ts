@@ -20,6 +20,9 @@ const TAN_CLI = "tan";
 /// The Tan LSP Server executable name.
 const TAN_LSP_SERVER = "tan_lsp_server";
 
+/// The name of the Tan REPL terminal.
+const TAN_REPL_TERMINAL_NAME = "Tan REPL";
+
 let client: LanguageClient;
 
 function executableExists(name: string): boolean {
@@ -33,9 +36,46 @@ function executableExists(name: string): boolean {
     .some((x) => fs.existsSync(path.resolve(x, name)));
 }
 
+// focusTextEditor:
+// vscode.commands.executeCommand("workbench.action.focusActiveEditorGroup");
+
+/**
+ * Creates a new REPL process.
+ */
+function createREPLTerminal(): Thenable<vscode.Terminal> {
+  const terminal = vscode.window.createTerminal(TAN_REPL_TERMINAL_NAME);
+  terminal.sendText(TAN_CLI, true);
+
+  return vscode.window.withProgress({
+    location: vscode.ProgressLocation.Notification,
+    title: "Opening Tan REPL...",
+    cancellable: false,
+  }, () => {
+    return new Promise<vscode.Terminal>((resolve) => {
+      terminal.show();
+      resolve(terminal);
+    });
+  });
+}
+
+/**
+ * Opens a terminal with a Tan REPL. If a REPL process is already spawned, it
+ * is reused.
+ */
+function openREPLTerminal(): Thenable<vscode.Terminal> {
+  let terminal =
+    vscode.window.terminals.find((t) => t.name === TAN_REPL_TERMINAL_NAME) ??
+      createREPLTerminal();
+
+  return Promise.resolve(terminal).then((t) => {
+    t.show();
+    return t;
+  });
+}
+
 /** Activates the extension. */
 export function activate(context: ExtensionContext) {
-  // Logs client messages to Output > Tan Client
+  // Logs client messages to Output > Tan Language Client
   const clientOutputChannel = vscode.window.createOutputChannel(
     "Tan Language Client",
   );
@@ -52,6 +92,7 @@ export function activate(context: ExtensionContext) {
   // #TODO consider other TransportKinds?
 
   // #TODO make logging level a client option?
+
   // Control server logging level.
   const env = Object.assign({}, process.env);
   Object.assign(env, { RA_LOG: "trace" });
@@ -79,17 +120,15 @@ export function activate(context: ExtensionContext) {
 
   context.subscriptions.push(vscode.commands.registerCommand(
     "tan.openREPL",
-    (args) => {
-      // #TODO
-      clientOutputChannel.appendLine(args);
-      //   getREPL(true);
+    () => {
+      clientOutputChannel.appendLine("Open REPL");
+      openREPLTerminal();
     },
   ));
 
   context.subscriptions.push(
     vscode.commands.registerCommand("tan.syntaxTree", (args) => {
       // #TODO
-      clientOutputChannel.appendLine(args);
     }),
   );
 
