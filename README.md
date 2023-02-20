@@ -1,6 +1,6 @@
 # VSCode Tan Extension
 
-A Visual Studio Code (VSCode) extension for the Tan language.
+A Visual Studio Code (VSCode) extension for the Tan Language.
 
 ## Status
 
