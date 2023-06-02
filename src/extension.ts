@@ -97,6 +97,12 @@ export function activate(context: ExtensionContext) {
   const env = Object.assign({}, process.env);
   Object.assign(env, { RA_LOG: "trace" });
 
+  if (!executableExists(TAN_LSP_SERVER)) {
+    clientOutputChannel.appendLine(
+      "Cannot find the Tan LSP Server, please install with `cargo install tan_lsp_server`!",
+    );
+  }
+
   const serverOptions: ServerOptions = {
     run: {
       command: TAN_LSP_SERVER,
@@ -140,6 +146,10 @@ export function activate(context: ExtensionContext) {
   );
 
   client.start();
+
+  clientOutputChannel.appendLine(
+    "Tan LSP Client initialized.",
+  );
 }
 
 /** Deactivates the extension. */
