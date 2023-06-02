@@ -39,6 +39,12 @@ vsce package
 
 To install, go to the VSCode extensions sidebar and select `Install Extension VSIX` from the overflow menu (3 dots menu), top-right.
 
+Make sure the latest version of tan_lsp_server is installed:
+
+```sh
+cargo install tan_lsp_server
+```
+
 ## Contributing
 
 Pull requests, issues, and comments are welcome! Make sure to add tests for new features and bug fixes.
