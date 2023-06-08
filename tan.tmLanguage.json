@@ -11,23 +11,21 @@
         "all": {
             "patterns": [
                 {
-                    "include": "#comment_line_double-dash"
-                },
-                {
                     "include": "#comment_line_semicolon"
                 },
                 {
                     "include": "#annotation"
                 },
                 {
+                    "include": "#let"
+                },
+                {
+                    "include": "#if"
+                },
+                {
                     "include": "#use"
                 }
             ]
-        },
-        "comment_line_double-dash": {
-            "name": "comment.line.double-dash.tan",
-            "begin": "--",
-            "end": "$"
         },
         "comment_line_semicolon": {
             "name": "comment.line.semicolon.tan",
@@ -38,6 +36,14 @@
             "name": "keyword.control.tan",
             "begin": "\\#",
             "end": "\\s"
+        },
+        "let": {
+            "name": "keyword.control.tan",
+            "match": "\\b(let)\\b"
+        },
+        "if": {
+            "name": "keyword.control.tan",
+            "match": "\\b(if)\\b"
         },
         "use": {
             "name": "keyword.control.import.tan",

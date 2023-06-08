@@ -45,6 +45,11 @@ Make sure the latest version of tan_lsp_server is installed:
 cargo install tan_lsp_server
 ```
 
+## Links
+
+- https://macromates.com/manual/en/language_grammars#naming_conventions
+- https://macromates.com/manual/en/language_grammars
+
 ## Contributing
 
 Pull requests, issues, and comments are welcome! Make sure to add tests for new features and bug fixes.
