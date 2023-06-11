@@ -93,9 +93,10 @@ export function activate(context: ExtensionContext) {
 
   // #TODO make logging level a client option?
 
+  // #TODO RA_LOG trace does _not_ work, investigate.
   // Control server logging level.
   const env = Object.assign({}, process.env);
-  Object.assign(env, { RA_LOG: "trace" });
+  Object.assign(env, { RUST_LOG: "trace" });
 
   if (!executableExists(TAN_LSP_SERVER)) {
     clientOutputChannel.appendLine(
