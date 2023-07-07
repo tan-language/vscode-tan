@@ -15,10 +15,10 @@ import {
 /// The Tan CLI executable name.
 const TAN_CLI = "tan";
 
-// #Tip Install server with `cargo install tan_lsp_server`.
+// #Tip Install server with `cargo install tan-language-server`.
 
-/// The Tan LSP Server executable name.
-const TAN_LSP_SERVER = "tan_lsp_server";
+/// The Tan Language Server executable name.
+const TAN_LANGUAGE_SERVER = "tan-language-server";
 
 /// The name of the Tan REPL terminal.
 const TAN_REPL_TERMINAL_NAME = "Tan REPL";
@@ -98,20 +98,20 @@ export function activate(context: ExtensionContext) {
   const env = Object.assign({}, process.env);
   Object.assign(env, { RUST_LOG: "trace" });
 
-  if (!executableExists(TAN_LSP_SERVER)) {
+  if (!executableExists(TAN_LANGUAGE_SERVER)) {
     clientOutputChannel.appendLine(
-      "Cannot find the Tan LSP Server, please install with `cargo install tan_lsp_server`!",
+      "Cannot find the Tan Language Server, please install with `cargo install tan-language-server`!",
     );
   }
 
   const serverOptions: ServerOptions = {
     run: {
-      command: TAN_LSP_SERVER,
+      command: TAN_LANGUAGE_SERVER,
       transport: TransportKind.stdio,
       options: { env },
     },
     debug: {
-      command: TAN_LSP_SERVER,
+      command: TAN_LANGUAGE_SERVER,
       transport: TransportKind.stdio,
       options: { env },
     },

@@ -5,7 +5,7 @@ A Visual Studio Code (VSCode) extension for the Tan Language.
 ## Setup
 
 ```sh
-cd tan_lsp_server
+cd tan-language-server
 cargo r
 ```
 
@@ -35,10 +35,10 @@ vsce package
 
 To install, go to the VSCode extensions sidebar and select `Install Extension VSIX` from the overflow menu (3 dots menu), top-right.
 
-Make sure the latest version of tan_lsp_server is installed:
+Make sure the latest version of tan-language-server is installed:
 
 ```sh
-cargo install tan_lsp_server
+cargo install tan-language-server
 ```
 
 ## Status
