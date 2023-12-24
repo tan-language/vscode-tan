@@ -1,118 +1,119 @@
 {
-    "name": "vscode-tan",
-    "displayName": "Tan Language",
-    "description": "VSCode Extension for the Tan Language",
-    "author": "George Moschovitis",
-    "license": "Apache-2.0",
-    "version": "0.13.0",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/tanlang-org/vscode-tan"
-    },
-    "publisher": "gmosx",
-    "categories": [
-        "Programming Languages"
-    ],
-    "keywords": [
-        "tan"
-    ],
-    "engines": {
-        "vscode": "^1.74.0"
-    },
-    "main": "./out/extension.js",
-    "activationEvents": [
-        "workspaceContains:**/*.tan"
-    ],
-    "contributes": {
-        "languages": [
-            {
-                "id": "tan",
-                "extensions": [
-                    ".tan"
-                ],
-                "aliases": [
-                    "Tan",
-                    "Tan Language"
-                ],
-                "filenames": [],
-                "firstLine": "^#!/.*\\btan[0-9.-]*\\b",
-                "configuration": "./language-configuration.json"
-            }
+  "name": "vscode-tan",
+  "displayName": "Tan Language",
+  "description": "VSCode Extension for the Tan Language",
+  "author": "George Moschovitis",
+  "license": "Apache-2.0",
+  "version": "0.13.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tanlang-org/vscode-tan"
+  },
+  "publisher": "gmosx",
+  "categories": [
+    "Programming Languages"
+  ],
+  "keywords": [
+    "tan"
+  ],
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "main": "./out/extension.js",
+  "activationEvents": [
+    "workspaceContains:**/*.tan"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "tan",
+        "extensions": [
+          ".tan"
         ],
-        "grammars": [
-            {
-                "language": "tan",
-                "scopeName": "source.tan",
-                "path": "./tan.tmLanguage.json",
-                "embeddedLanguages": {
-                    "meta.embedded.block.comment": "markdown"
-                }
-            }
+        "aliases": [
+          "Tan",
+          "Tan Language"
         ],
-        "commands": [
-            {
-                "command": "tan.syntaxTree",
-                "title": "Show Syntax Tree",
-                "category": "Tan"
-            },
-            {
-                "command": "tan.openREPL",
-                "title": "Open a REPL terminal",
-                "category": "Tan"
-            }
-        ],
-        "configuration": {
-            "type": "object",
-            "title": "Tan Language Server configuration",
-            "properties": {
-                "tan.maxNumberOfProblems": {
-                    "scope": "resource",
-                    "type": "number",
-                    "default": 100,
-                    "description": "Controls the maximum number of problems produced by the server."
-                },
-                "tan.trace.server": {
-                    "scope": "window",
-                    "type": "string",
-                    "enum": [
-                        "off",
-                        "messages",
-                        "verbose"
-                    ],
-                    "default": "verbose",
-                    "description": "Traces the communication between VS Code and the language server."
-                }
-            }
+        "filenames": [],
+        "firstLine": "^#!/.*\\btan[0-9.-]*\\b",
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "tan",
+        "scopeName": "source.tan",
+        "path": "./tan.tmLanguage.json",
+        "embeddedLanguages": {
+          "meta.embedded.block.comment": "markdown"
         }
-    },
-    "scripts": {
-        "compile": "node ./esbuild.js",
-        "watch": "tsc -watch -p ./",
-        "pretest": "npm run compile && npm run lint",
-        "lint": "eslint src --ext ts",
-        "package": "vsce package"
-    },
-    "dependencies": {
-        "vscode-languageclient": "^8.0.2",
-        "vscode-languageserver": "^8.0.2"
-    },
-    "devDependencies": {
-        "@types/glob": "^7.2.0",
-        "@types/mocha": "^8.2.3",
-        "@types/node": "^12.20.55",
-        "@types/vscode": "1.70.0",
-        "@typescript-eslint/eslint-plugin": "^5.44.0",
-        "@typescript-eslint/parser": "^5.44.0",
-        "@vscode/codicons": "0.0.32",
-        "esbuild": "^0.14.54",
-        "eslint": "^8.28.0",
-        "glob": "^7.2.3",
-        "mocha": "^10.2.0",
-        "path-browserify": "^1.0.1",
-        "ts-loader": "^9.4.1",
-        "typescript": "^4.9.3",
-        "vscode-test": "^1.6.1",
-        "webpack": "^5.75.0",
-        "webpack-cli": "^4.10.0"
+      }
+    ],
+    "commands": [
+      {
+        "command": "tan.syntaxTree",
+        "title": "Show Syntax Tree",
+        "category": "Tan"
+      },
+      {
+        "command": "tan.openREPL",
+        "title": "Open a REPL terminal",
+        "category": "Tan"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "Tan Language Server configuration",
+      "properties": {
+        "tan.maxNumberOfProblems": {
+          "scope": "resource",
+          "type": "number",
+          "default": 100,
+          "description": "Controls the maximum number of problems produced by the server."
+        },
+        "tan.trace.server": {
+          "scope": "window",
+          "type": "string",
+          "enum": [
+            "off",
+            "messages",
+            "verbose"
+          ],
+          "default": "verbose",
+          "description": "Traces the communication between VS Code and the language server."
+        }
+      }
     }
+  },
+  "scripts": {
+    "compile": "node ./esbuild.js",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "package": "vsce package"
+  },
+  "dependencies": {
+    "vscode-languageclient": "^8.0.2",
+    "vscode-languageserver": "^8.0.2"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.2.0",
+    "@types/mocha": "^8.2.3",
+    "@types/node": "^12.20.55",
+    "@types/vscode": "1.70.0",
+    "@typescript-eslint/eslint-plugin": "^5.44.0",
+    "@typescript-eslint/parser": "^5.44.0",
+    "@vscode/codicons": "0.0.32",
+    "@vscode/vsce": "2.22.0",
+    "esbuild": "^0.14.54",
+    "eslint": "^8.28.0",
+    "glob": "^7.2.3",
+    "mocha": "^10.2.0",
+    "path-browserify": "^1.0.1",
+    "ts-loader": "^9.4.1",
+    "typescript": "^4.9.3",
+    "vscode-test": "^1.6.1",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^4.10.0"
+  }
 }
