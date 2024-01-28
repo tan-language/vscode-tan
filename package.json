@@ -4,7 +4,7 @@
   "description": "VSCode Extension for the Tan Language",
   "author": "George Moschovitis",
   "license": "Apache-2.0",
-  "version": "0.13.0",
+  "version": "0.14.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/tanlang-org/vscode-tan"
@@ -59,6 +59,12 @@
         "command": "tan.openREPL",
         "title": "Open a REPL terminal",
         "category": "Tan"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "tan",
+        "path": "./snippets.json"
       }
     ],
     "configuration": {

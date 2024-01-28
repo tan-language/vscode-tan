@@ -1,0 +1,11 @@
+{
+  "Function definition": {
+    "prefix": ["letf", "let-fn"],
+    "body": [
+      "(let ${1:name} (Func [${2:params}]",
+      "\t$0",
+      "))"
+    ],
+    "description": "A function definition"
+  }
+}
