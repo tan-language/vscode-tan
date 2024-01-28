@@ -7,5 +7,19 @@
       "))"
     ],
     "description": "A function definition"
+  },
+  "If-Else": {
+    "prefix": ["if-else"],
+    "body": [
+      "(if ${1:predicate}",
+      "\t(do",
+      "\t\t$2",
+      "\t)",
+      "\t(do",
+      "\t\t$3",
+      "\t)",
+      ")"
+    ],
+    "description": "An if-else block"
   }
 }
