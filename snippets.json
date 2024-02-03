@@ -21,5 +21,12 @@
       ")"
     ],
     "description": "An if-else block"
+  },
+  "WriteLn": {
+    "prefix": ["wln"],
+    "body": [
+      "(writeln \"${0}\")"
+    ],
+    "description": "A writeln invocation"
   }
 }
