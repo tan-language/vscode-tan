@@ -17,7 +17,7 @@
     "tan"
   ],
   "engines": {
-    "vscode": "^1.74.0"
+    "vscode": "^1.86.0"
   },
   "main": "./out/extension.js",
   "activationEvents": [
