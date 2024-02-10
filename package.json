@@ -4,7 +4,7 @@
   "description": "VSCode Extension for the Tan Language",
   "author": "George Moschovitis",
   "license": "Apache-2.0",
-  "version": "0.14.0",
+  "version": "0.15.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/tanlang-org/vscode-tan"
@@ -19,7 +19,7 @@
   "engines": {
     "vscode": "^1.86.0"
   },
-  "main": "./out/extension.js",
+  "main": "./dist/main.js",
   "activationEvents": [
     "workspaceContains:**/*.tan"
   ],
@@ -96,7 +96,11 @@
     "watch": "tsc -watch -p ./",
     "pretest": "npm run compile && npm run lint",
     "lint": "eslint src --ext ts",
-    "package": "vsce package"
+    "package": "vsce package",
+    "vscode:prepublish": "npm run esbuild-base -- --minify",
+    "esbuild-base": "esbuild ./src/extension.ts --bundle --outfile=dist/main.js --external:vscode --format=cjs --platform=node",
+    "esbuild": "npm run esbuild-base -- --sourcemap",
+    "esbuild-watch": "npm run esbuild-base -- --sourcemap --watch"
   },
   "dependencies": {
     "vscode-languageclient": "^8.0.2",
