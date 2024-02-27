@@ -8,6 +8,7 @@ import {
   ServerOptions,
   TransportKind,
 } from "vscode-languageclient/node";
+import { ServerStatusService } from "./server-status";
 
 // #TODO different path for windows/unix?
 // #Tip Install server with `cargo install tan`.
@@ -124,6 +125,8 @@ export function activate(context: ExtensionContext) {
       fileEvents: workspace.createFileSystemWatcher("**/*.tan"),
     },
   };
+
+  context.subscriptions.push(new ServerStatusService(client));
 
   context.subscriptions.push(vscode.commands.registerCommand(
     "tan.openREPL",
