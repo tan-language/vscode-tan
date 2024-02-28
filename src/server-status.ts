@@ -9,7 +9,7 @@ export class ServerStatusService implements Disposable {
 
   constructor(private readonly client: LanguageClient) {
     this.item = vs.window.createStatusBarItem(vs.StatusBarAlignment.Left);
-    this.item.text = "👅 Starting";
+    this.item.text = "👅 starting";
     this.item.tooltip = "Tan server";
     this.item.show();
     // console.log("Status bar item shown");
