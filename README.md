@@ -54,6 +54,16 @@ npm run publish
 cargo install tan-language-server
 ```
 
+## Logging
+
+In the VSCode Output panel there are various Tan-related logging sinks:
+
+- `Tan Language`: tan-language-server error logs (`eprintln!`)
+- `Tan Language Server Trace`: ??
+- `Tan Language Client`: show logs appended to the clientOutputChannel (_not_
+  console.log etc)
+- `Extension Host`: shows extension activation errors.
+
 ## Status
 
 This is an _experimental_ project, not intended for production use.

@@ -8,6 +8,7 @@ import {
   ServerOptions,
   TransportKind,
 } from "vscode-languageclient/node";
+import { ServerStatusSubscription } from "./server-status";
 
 // #TODO different path for windows/unix?
 // #Tip Install server with `cargo install tan`.
@@ -125,10 +126,6 @@ export function activate(context: ExtensionContext) {
     },
   };
 
-  //   console.error("---1");
-  //   context.subscriptions.push(new ServerStatusService(client));
-  //   console.error("---2");
-
   context.subscriptions.push(vscode.commands.registerCommand(
     "tan.openREPL",
     () => {
@@ -151,6 +148,10 @@ export function activate(context: ExtensionContext) {
   );
 
   client.start();
+
+  context.subscriptions.push(
+    new ServerStatusSubscription(client, clientOutputChannel),
+  );
 
   clientOutputChannel.appendLine(
     "Tan LSP Client initialized.",
