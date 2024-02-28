@@ -12,12 +12,16 @@ export class ServerStatusService implements Disposable {
     this.item.text = "👅 starting";
     this.item.tooltip = "Tan server";
     this.item.show();
-    // console.log("Status bar item shown");
+
+    console.log("Status bar item shown");
 
     this.subscriptions.push(
       client.onNotification(
         publishServerStatusType,
-        (notification) => (this.item.text = notification.text),
+        (notification) => {
+          console.log("---->>> ", notification);
+          //   this.item.text = notification.text;
+        },
       ),
     );
   }
