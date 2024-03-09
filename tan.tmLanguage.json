@@ -20,6 +20,9 @@
                     "include": "#let"
                 },
                 {
+                    "include": "#for"
+                },
+                {
                     "include": "#if"
                 },
                 {
@@ -40,6 +43,10 @@
         "let": {
             "name": "keyword.control.tan",
             "match": "\\b(let)\\b"
+        },
+        "for": {
+            "name": "keyword.control.tan",
+            "match": "\\b(for)\\b"
         },
         "if": {
             "name": "keyword.control.tan",
