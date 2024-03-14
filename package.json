@@ -4,7 +4,7 @@
   "description": "VSCode Extension for the Tan Language",
   "author": "George Moschovitis",
   "license": "Apache-2.0",
-  "version": "0.18.0",
+  "version": "0.19.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/tanlang-org/vscode-tan"
@@ -34,6 +34,10 @@
           "Tan",
           "Tan Language"
         ],
+        "icon": {
+          "light": "./icons/light/tan.svg",
+          "dark": "./icons/dark/tan.svg"
+        },
         "filenames": [],
         "firstLine": "^#!/.*\\btan[0-9.-]*\\b",
         "configuration": "./language-configuration.json"
