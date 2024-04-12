@@ -28,5 +28,12 @@
       "(writeln \"${0}\")"
     ],
     "description": "A writeln invocation"
+  },
+  "Echo": {
+    "prefix": ["ech"],
+    "body": [
+      "(echo \"${0}\")"
+    ],
+    "description": "An echo invocation"
   }
 }

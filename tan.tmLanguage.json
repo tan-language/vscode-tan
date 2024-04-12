@@ -26,6 +26,12 @@
                     "include": "#if"
                 },
                 {
+                    "include": "#cond"
+                },
+                {
+                    "include": "#else"
+                },
+                {
                     "include": "#use"
                 }
             ]
@@ -51,6 +57,14 @@
         "if": {
             "name": "keyword.control.tan",
             "match": "\\b(if)\\b"
+        },
+        "cond": {
+            "name": "keyword.control.tan",
+            "match": "\\b(cond)\\b"
+        },
+        "else": {
+            "name": "keyword.control.tan",
+            "match": "\\b(else)\\b"
         },
         "use": {
             "name": "keyword.control.import.tan",
