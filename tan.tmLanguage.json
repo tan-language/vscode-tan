@@ -33,13 +33,13 @@
                 },
                 {
                     "include": "#use"
-                }
+                },
                 {
                     "include": "#return"
-                }
+                },
                 {
                     "include": "#continue"
-                }
+                },
                 {
                     "include": "#break"
                 }
@@ -78,15 +78,15 @@
         "use": {
             "name": "keyword.control.import.tan",
             "match": "\\b(use)\\b"
-        }
+        },
         "return": {
             "name": "keyword.control.import.tan",
             "match": "\\b(return)\\b"
-        }
+        },
         "continue": {
             "name": "keyword.control.import.tan",
             "match": "\\b(continue)\\b"
-        }
+        },
         "break": {
             "name": "keyword.control.import.tan",
             "match": "\\b(break)\\b"
