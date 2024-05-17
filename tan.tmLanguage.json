@@ -17,6 +17,9 @@
                     "include": "#annotation"
                 },
                 {
+                    "include": "#def"
+                },
+                {
                     "include": "#let"
                 },
                 {
@@ -54,6 +57,10 @@
             "name": "keyword.control.tan",
             "begin": "\\#",
             "end": "\\s"
+        },
+        "def": {
+            "name": "keyword.control.tan",
+            "match": "\\b(def)\\b"
         },
         "let": {
             "name": "keyword.control.tan",
