@@ -47,14 +47,14 @@
       {
         "language": "tan",
         "scopeName": "source.tan",
-        "path": "./tan.tmLanguage.json",
+        "path": "./syntaxes/tan.tmLanguage.json",
         "embeddedLanguages": {
           "meta.embedded.block.comment": "markdown"
         }
       },
       {
         "scopeName": "markdown.tan.codeblock",
-        "path": "./tan.codeblock.json",
+        "path": "./syntaxes/tan.codeblock.json",
         "injectTo": [
           "text.html.markdown"
         ],
