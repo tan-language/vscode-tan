@@ -4,7 +4,7 @@
   "description": "VSCode Extension for the Tan Language",
   "author": "George Moschovitis",
   "license": "Apache-2.0",
-  "version": "0.20.0",
+  "version": "0.21.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/tanlang-org/vscode-tan"
@@ -50,6 +50,16 @@
         "path": "./tan.tmLanguage.json",
         "embeddedLanguages": {
           "meta.embedded.block.comment": "markdown"
+        }
+      },
+      {
+        "scopeName": "markdown.tan.codeblock",
+        "path": "./tan.codeblock.json",
+        "injectTo": [
+          "text.html.markdown"
+        ],
+        "embeddedLanguages": {
+          "meta.embedded.block.tan": "tan"
         }
       }
     ],
