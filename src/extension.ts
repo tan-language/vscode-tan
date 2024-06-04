@@ -10,7 +10,7 @@ import {
 } from "vscode-languageclient/node";
 import { ServerStatusSubscription } from "./server-status";
 
-// #TODO different path for windows/unix?
+// #todo different path for windows/unix?
 // #Tip Install server with `cargo install tan`.
 
 /// The Tan CLI executable name.
@@ -90,11 +90,11 @@ export function activate(context: ExtensionContext) {
   // #Insight
   // Server output (eprintln!) is logged to Output > Tan Language
 
-  // #TODO consider other TransportKinds?
+  // #todo consider other TransportKinds?
 
-  // #TODO make logging level a client option?
+  // #todo make logging level a client option?
 
-  // #TODO RA_LOG trace does _not_ work, investigate.
+  // #todo RA_LOG trace does _not_ work, investigate.
   // Control server logging level.
   const env = Object.assign({}, process.env);
   Object.assign(env, { RUST_LOG: "trace" });
@@ -136,7 +136,7 @@ export function activate(context: ExtensionContext) {
 
   context.subscriptions.push(
     vscode.commands.registerCommand("tan.syntaxTree", (args) => {
-      // #TODO
+      // #todo
     }),
   );
 
@@ -152,6 +152,16 @@ export function activate(context: ExtensionContext) {
   context.subscriptions.push(
     new ServerStatusSubscription(client, clientOutputChannel),
   );
+
+  //   // debugging.
+  //   for (const tg of vscode.window.tabGroups.all) {
+  //     for (const t of tg.tabs) {
+  //       clientOutputChannel.appendLine(t.label);
+  //     }
+  //   }
+
+  //   const outlineProvider = new OutlineProvider();
+  //   vscode.window.registerTreeDataProvider("outline", outlineProvider);
 
   clientOutputChannel.appendLine(
     "Tan LSP Client initialized.",
