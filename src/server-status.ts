@@ -1,4 +1,4 @@
-import * as vs from "vscode";
+import * as vscode from "vscode";
 import { Disposable, StatusBarItem } from "vscode";
 import { LanguageClient } from "vscode-languageclient/node";
 import { publishServerStatusType } from "./lsp-custom-protocol";
@@ -10,9 +10,11 @@ export class ServerStatusSubscription implements Disposable {
 
   constructor(
     client: LanguageClient,
-    private readonly _clientOutputChannel: vs.OutputChannel,
+    private readonly _clientOutputChannel: vscode.OutputChannel,
   ) {
-    this.item = vs.window.createStatusBarItem(vs.StatusBarAlignment.Left);
+    this.item = vscode.window.createStatusBarItem(
+      vscode.StatusBarAlignment.Left,
+    );
     this.item.text = "👅 starting";
     this.item.tooltip = "Tan server";
     this.item.show();
