@@ -160,6 +160,7 @@ export function activate(context: ExtensionContext) {
   //     }
   //   }
 
+  // #insight no need for js outline provider, the LSP handles this!
   //   const outlineProvider = new OutlineProvider();
   //   vscode.window.registerTreeDataProvider("outline", outlineProvider);
 
