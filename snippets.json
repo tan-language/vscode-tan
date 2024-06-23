@@ -8,6 +8,15 @@
     ],
     "description": "A function definition"
   },
+  "Test function definition": {
+    "prefix": ["lett", "let-test"],
+    "body": [
+      "(let test-${1:name} (Func []",
+      "\t$0",
+      "))"
+    ],
+    "description": "A function definition"
+  },
   "If-Else": {
     "prefix": ["if-else"],
     "body": [
