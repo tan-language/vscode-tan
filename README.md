@@ -81,4 +81,4 @@ details.
 
 ## Copyright
 
-Copyright © 2022 [Georgios Moschovitis](https://gmosx.ninja).
+Copyright © 2022 [Georgios Moschovitis](https://gmosx.com).
